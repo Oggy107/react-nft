@@ -7,3 +7,16 @@ $color-white: #fff;
     padding: 0;
     box-sizing: border-box;
 }
+
+@function set-color($bg-color)
+{
+    @if (lightness($bg-color) >= 50)
+    {
+        @return $color-primary;
+    }
+    @else
+    {
+        @return $color-white;
+    }
+}
+
