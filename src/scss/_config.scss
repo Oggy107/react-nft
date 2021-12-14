@@ -1,0 +1,22 @@
+$color-primary: #000;
+$color-secondary: rgb(47, 40, 40);
+$color-white: #fff;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@function set-color($bg-color)
+{
+    @if (lightness($bg-color) >= 50)
+    {
+        @return $color-primary;
+    }
+    @else
+    {
+        @return $color-white;
+    }
+}
+
