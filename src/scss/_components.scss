@@ -1,0 +1,30 @@
+.input-custom {
+    padding: 7px;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    font-size: large;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ul-custom {
+    list-style: none;
+}
+
+.a-custom {
+    text-decoration: none;
+    color: $color-white;
+}
+
+.btn-custom {
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: .9rem;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
