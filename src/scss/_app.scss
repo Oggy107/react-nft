@@ -1,6 +1,10 @@
+
+
 .app-container {
     width: 100%;
     height: 100vh;
-    background: $color-primary;
-    color: set-color($color-primary);
+    padding: 1.5rem;
+    background: $color-background;
+    color: set-color($color-background);
+    font-family: 'Roboto', sans-serif;
 }

@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 $color-primary: #000;
-$color-secondary: rgb(47, 40, 40);
+$color-secondary: rgb(26, 25, 25);
 $color-white: #fff;
+
+$color-background: $color-primary;
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @function set-color($bg-color)
