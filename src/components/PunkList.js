@@ -11,6 +11,7 @@ const PunkList = () => {
                 </div>
                 <div className="punkDetail-container">
                     <h2 className='punkName'>cool punk</h2>
+                    <p className="punkId">.#1</p>
                     <div className="price-container">
                         <img src={ethLogo} alt="" />
                         <p>5</p>
