@@ -25,6 +25,7 @@
         flex-grow: 5;
 
         & .input-search {
+            width: 100%;
             background: transparent;
             color: set-color($color-secondary);
         }
