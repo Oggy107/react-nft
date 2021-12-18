@@ -1,32 +1,23 @@
 import React from 'react'
-import axios from 'axios'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAssets, setSelected } from '../redux/actions'
+import Loading from './Loading'
 
 import ethLogo from '../assets/eth.png'
-import loadingAnimation from '../assets/loading.gif'
 
 const PunkList = () => {
-    const [punkListData, setPunkListData] = React.useState([])
-    const [loading, setLoading] = React.useState(true);
+    const dispatch = useDispatch()
+    const punkListData = useSelector((state) => (state.assets))
+    const loading = useSelector((state) => (state.loading))
 
-    React.useEffect(async () => {
-        // const resp = await fetch('https://testnets-api.opensea.io/assets?asset_contract_address=0x7dca125b1e805dc88814aed7ccc810f677d3e1db&order_direction=asc')
-        axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
-            .then((resp) => {
-                setPunkListData(resp.data.assets)
-                setLoading(false)
-            })
-            .catch((err) => {
-                console.error(err)
-            })
+    React.useEffect(() => {
+        dispatch(fetchAssets())
     }, [])
 
     if (loading)
     {
-        return (
-            <div className="punkList-container">
-                <img src={loadingAnimation} alt="" />
-            </div>
-        )
+        return <Loading className="punkList-container"/>
     }
 
     return (
@@ -34,7 +25,7 @@ const PunkList = () => {
             {
                 punkListData.map((item, index) => {
                     return (
-                    <div key={index} className="punkCard-container">
+                    <div key={index} className="punkCard-container" onClick={() => {dispatch(setSelected(index))}}>
                         <div className="punkImg-container">
                             <img src={item.image_url} alt="" />
                         </div>
