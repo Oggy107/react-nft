@@ -9,6 +9,7 @@ const PunkList = () => {
 
     React.useEffect(async () => {
         const resp = await fetch('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
+        // const resp = await fetch('https://testnets-api.opensea.io/assets?asset_contract_address=0x7dca125b1e805dc88814aed7ccc810f677d3e1db&order_direction=asc')
         const openseaData = await resp.json()
         setPunkListData(openseaData.assets)
         console.log(openseaData.assets)
@@ -39,6 +40,7 @@ const PunkList = () => {
                             <div className="price-container">
                                 <img src={ethLogo} alt="" />
                                 <p>{item.traits[0].value}</p>
+                                {/* <p>{item.description}</p> */}
                             </div>
                         </div>
                     </div>
