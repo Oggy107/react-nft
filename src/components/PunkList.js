@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 
 import ethLogo from '../assets/eth.png'
 import loadingAnimation from '../assets/loading.gif'
@@ -8,12 +9,15 @@ const PunkList = () => {
     const [loading, setLoading] = React.useState(true);
 
     React.useEffect(async () => {
-        const resp = await fetch('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
         // const resp = await fetch('https://testnets-api.opensea.io/assets?asset_contract_address=0x7dca125b1e805dc88814aed7ccc810f677d3e1db&order_direction=asc')
-        const openseaData = await resp.json()
-        setPunkListData(openseaData.assets)
-        console.log(openseaData.assets)
-        setLoading(false)
+        axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
+            .then((resp) => {
+                setPunkListData(resp.data.assets)
+                setLoading(false)
+            })
+            .catch((err) => {
+                console.error(err)
+            })
     }, [])
 
     if (loading)
