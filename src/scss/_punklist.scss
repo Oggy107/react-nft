@@ -1,7 +1,15 @@
 .punkList-container {
+    width: 100%;
+    height: 100%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 2rem 2rem;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     & .punkCard-container {
         width: 17rem;
@@ -9,6 +17,11 @@
         border-radius: 1rem;
         overflow: hidden;
         background-color: $color-secondary;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            transform: scale(1.05);
+        }
 
         & .punkImg-container {
             width: 100%;
