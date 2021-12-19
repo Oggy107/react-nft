@@ -1,19 +1,10 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import Loading from './Loading'
-
 const Details = () => {
     const punkListData = useSelector((state) => (state.assets))
-    const loading = useSelector((state) => (state.loading))
     const selected = useSelector((state) => (state.selected))
     const selectedPunk = punkListData[selected]
-    console.log(selectedPunk)
-
-    if (loading)
-    {
-        return <Loading className={'Details-container'}/>
-    }
 
     return (
         <div className='details-container'>

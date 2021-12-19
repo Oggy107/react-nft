@@ -1,24 +1,13 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchAssets, setSelected } from '../redux/actions'
-import Loading from './Loading'
+import { setSelected } from '../redux/actions'
 
 import ethLogo from '../assets/eth.png'
 
 const PunkList = () => {
     const dispatch = useDispatch()
     const punkListData = useSelector((state) => (state.assets))
-    const loading = useSelector((state) => (state.loading))
-
-    React.useEffect(() => {
-        dispatch(fetchAssets())
-    }, [])
-
-    if (loading)
-    {
-        return <Loading className="punkList-container"/>
-    }
 
     return (
         <div className='punkList-container'>
