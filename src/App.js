@@ -11,8 +11,10 @@ const App = () => {
         <Provider store={store}>
             <div className='app-container'>
                 <Header />
-                <Details />
-                <PunkList />
+                <div className="app-body-container">
+                    <Details />
+                    <PunkList />
+                </div>
             </div>
         </Provider>
     )

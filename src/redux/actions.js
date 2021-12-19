@@ -28,7 +28,8 @@ export const fetchAssets = () => {
     // returns thunk function
     return (dispatch) => {
         dispatch(fetchAssetsRequest)
-        axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
+        // axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
+        axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x7dca125b1e805dc88814aed7ccc810f677d3e1db&order_direction=asc')
             .then((resp) => {
                 dispatch(fetchSuccess(resp.data.assets))
             })

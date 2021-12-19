@@ -1,0 +1,22 @@
+.app-container {
+    @include screen-large {
+        display: grid;
+        grid-template-rows: 1fr 25fr;
+
+        & .app-body-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+
+    @include screen-medium {
+        display: grid;
+        grid-template-rows: 1fr 25fr;
+
+        & .app-body-container {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            row-gap: 1rem;
+        }
+    }
+}
