@@ -11,5 +11,7 @@
 
 ## TODO
 
-* add responsiveness
-* accept asset contract addresses
+* [x] add responsiveness
+* [x] accept asset contract addresses
+* [ ] add some addresses to play with
+* [ ] try adding light theme
