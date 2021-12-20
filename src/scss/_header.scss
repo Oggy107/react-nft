@@ -24,11 +24,16 @@
         align-items: center;
         flex-grow: 5;
 
-        & .input-search {
+        & form {
             width: 100%;
-            background: transparent;
-            color: set-color($color-secondary);
+
+            & .input-search {
+                width: 100%;
+                background: transparent;
+                color: set-color($color-secondary);
+            }
         }
+
     }
 
     & .nav-link-container {

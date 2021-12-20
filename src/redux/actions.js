@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { FETCH_ASSETS, FETCHING_SUCCESS, FETCHING_FAILURE, SET_SELECTED } from "./actionTypes";
+import { FETCH_ASSETS, FETCHING_SUCCESS, FETCHING_FAILURE, SET_SELECTED, SET_ASSET_CONTRACT_ADDRESS } from "./actionTypes";
 
 export const fetchAssetsRequest = () => {
     return {
@@ -24,12 +24,11 @@ export const fetchFailure = (error) => {
 }
 
 // thunk action creator
-export const fetchAssets = () => {
+export const fetchAssets = (asset_contract_address) => {
     // returns thunk function
     return (dispatch) => {
-        dispatch(fetchAssetsRequest)
-        // axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99&order_direction=asc')
-        axios.get('https://testnets-api.opensea.io/assets?asset_contract_address=0x7dca125b1e805dc88814aed7ccc810f677d3e1db&order_direction=asc')
+        dispatch(fetchAssetsRequest())
+        axios.get(`https://testnets-api.opensea.io/assets?asset_contract_address=${asset_contract_address}&order_direction=asc`)
             .then((resp) => {
                 dispatch(fetchSuccess(resp.data.assets))
             })
@@ -43,5 +42,19 @@ export const setSelected = (index) => {
     return {
         type: SET_SELECTED,
         payload: index
+    }
+}
+
+const setAssetConractAddress_i = (asset_contract_address) => {
+    return {
+        type: SET_ASSET_CONTRACT_ADDRESS,
+        payload: asset_contract_address
+    }
+}
+
+export const setAssetConractAddress = (asset_contract_address) => {
+    return (dispatch) => {
+        dispatch(setAssetConractAddress_i(asset_contract_address))
+        dispatch(fetchAssets(asset_contract_address))
     }
 }
