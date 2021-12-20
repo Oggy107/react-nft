@@ -12,9 +12,10 @@ import loadingAnimation from './assets/loading.gif'
 const App = () => {
     const dispatch = useDispatch()
     const loading = useSelector((state) => (state.loading))
+    const asset_contract_address = useSelector((state) => (state.asset_contract_address))
 
     React.useEffect(() => {
-        dispatch(fetchAssets())
+        dispatch(fetchAssets(asset_contract_address))
     }, [])
 
     if (loading)

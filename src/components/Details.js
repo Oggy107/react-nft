@@ -15,7 +15,7 @@ const Details = () => {
                     {
                         selectedPunk.description &&
                         <div className="details-desc-container">
-                            <h4>{selectedPunk.description}</h4>
+                            <p>{selectedPunk.description}</p>
                         </div>
                     }
                 </div>
@@ -28,24 +28,28 @@ const Details = () => {
             </div>
             <div className="details-traits-container">
                 <h2>Traits</h2>
-                <div className="table-container">
 
-                <table>
-                    <tr>
-                        <th>trait type</th>
-                        <th>value</th>
-                    </tr>
+                <div className="table-container">
                     {
-                        selectedPunk.traits.map((trait) => {
-                            return (
-                                <tr>
-                                        <td>{trait.trait_type}</td>
-                                        <td>{trait.value}</td>
-                                    </tr>
-                                    )
-                                })
-                            }
-                </table>
+                        selectedPunk.traits[0] ?
+                        <table>
+                            <tr>
+                                <th>trait type</th>
+                                <th>value</th>
+                            </tr>
+                            {
+                                selectedPunk.traits.map((trait) => {
+                                    return (
+                                        <tr>
+                                                <td>{trait.trait_type}</td>
+                                                <td>{trait.value}</td>
+                                            </tr>
+                                            )
+                                        })
+                                    }
+                        </table> :
+                        <h4>None</h4>
+                    }
                 </div>
             </div>
         </div>
