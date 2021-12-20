@@ -22,9 +22,13 @@ const PunkList = () => {
                             <h2 className='punkName'>{item.name}</h2>
                             <p className="punkId">.#{item.token_id}</p>
                             <div className="price-container">
-                                <img src={ethLogo} alt="" />
-                                <p>{item.traits[0].value}</p>
-                                {/* <p>{item.description}</p> */}
+                                {
+                                    item.traits[0] && item.traits[0].trait_type == 'Price' &&
+                                    <>
+                                        <img src={ethLogo} alt="eth logo" />
+                                        <p>{item.traits[0].value}</p>
+                                    </>
+                                }
                             </div>
                         </div>
                     </div>

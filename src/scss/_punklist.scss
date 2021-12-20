@@ -13,7 +13,6 @@
 
     & .punkCard-container {
         width: 17rem;
-        height: 25rem;
         border-radius: 1rem;
         overflow: hidden;
         background-color: $color-secondary;
@@ -26,16 +25,16 @@
 
         & .punkImg-container {
             width: 100%;
-            height: 60%;
 
             & img {
                 width: 100%;
-                height: 100%;
+                height: auto;
             }
         }
 
         & .punkDetail-container {
             padding: 10px;
+            margin-top: 1rem;
 
             & .punkName {
                 margin: 0 5px 5px 0;
