@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { setAssetConractAddress } from '../redux/actions'
 
+import SubMenu from './SubMenu'
+
 import logo from '../assets/header/cryptopunk-logo.png'
 import searchLogo from '../assets/header/search.png'
 import themeSwitch from '../assets/header/theme-switch.png'
 
 const Header = () => {
     const inputRef = React.useRef(null);
+    const subMenuRef = React.useRef(null)
     const dispatch = useDispatch();
     const error = useSelector((state) => (state.error))
 
@@ -20,6 +23,18 @@ const Header = () => {
             dispatch(setAssetConractAddress(inputRef.current.value))
             inputRef.current.value = ''
         }
+    }
+
+    const openSubMenu = (eo) => {
+        const pos = eo.currentTarget.getBoundingClientRect()
+        const center = (pos.left + pos.right) / 2
+        subMenuRef.current.style.left = `${center}px`
+        subMenuRef.current.style.top = `${pos.bottom}px`
+        subMenuRef.current.style.display = "block"
+    }
+
+    const closeSubMenu = (eo) => {
+        subMenuRef.current.style.display = "none"
     }
 
     React.useEffect(() => {
@@ -41,7 +56,8 @@ const Header = () => {
             <div class="flex-container" style={{display: 'flex', alignItems: 'center', columnGap: '20px'}}>
                 <div className="nav-link-container">
                     <ul className='ul-custom'>
-                        <li><a className='a-custom nav-link' href="#">Drops</a></li>
+                        <SubMenu subMenuRef={subMenuRef}/>
+                        <li><a onMouseEnter={(eo) => {openSubMenu(eo);}} onMouseLeave={(eo) => {closeSubMenu(eo)}} className='a-custom nav-link' href="#">Addresses</a></li>
                         <li><a className='a-custom nav-link' href="#">Marketplace</a></li>
                         <li><a className='a-custom nav-link' href="#">Create</a></li>
                     </ul>
