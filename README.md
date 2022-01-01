@@ -1,11 +1,17 @@
 # NFT React App 🚀 [ IN Developement]
 
+* View NFTs deployed over ethereum test networks through contract addresses
+* Hover over Addresses in menu for sample contract addresses
+
+<br />
+
+---
+
 ## Technologies used
 
 * React
 * Redux
 * SASS (scss syntax)
-* Deployed on Rinkeby an etherium test network
 
 ---
 
