@@ -1,7 +1,5 @@
 import { FETCH_ASSETS, FETCHING_SUCCESS, FETCHING_FAILURE, SET_SELECTED, SET_ASSET_CONTRACT_ADDRESS } from "./actionTypes";
 
-// 0x295E39F8A3E61690CbbD4aCda9f067Bf72B79F99
-
 const initialState = {
     assets: [],
     loading: true,
