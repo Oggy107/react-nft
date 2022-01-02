@@ -48,12 +48,12 @@ const Header = () => {
                 <img src={logo} alt="logo" />
             </div>
             <div className="search-container">
-                <img src={searchLogo} />
+                <img src={searchLogo} alt="logo"/>
                 <form autoComplete='off' onSubmit={(eo) => {handleSubmit(eo)}}>
                     <input ref={inputRef} className='input-custom input-search' type="text" name="search" placeholder='asset contract address'/>
                 </form>
             </div>
-            <div class="flex-container" style={{display: 'flex', alignItems: 'center', columnGap: '20px'}}>
+            <div className="flex-container" style={{display: 'flex', alignItems: 'center', columnGap: '20px'}}>
                 <div className="nav-link-container">
                     <ul className='ul-custom'>
                         <SubMenu subMenuRef={subMenuRef}/>
@@ -63,7 +63,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="theme-switch">
-                    <img src={themeSwitch} />
+                    <img src={themeSwitch} alt="switch"/>
                 </div>
                 <button className="btn-custom btn-getin">GET IN</button>
             </div>

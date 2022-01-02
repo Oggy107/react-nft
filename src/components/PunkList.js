@@ -23,7 +23,7 @@ const PunkList = () => {
                             <p className="punkId">.#{item.token_id}</p>
                             <div className="price-container">
                                 {
-                                    item.traits[0] && item.traits[0].trait_type == 'Price' &&
+                                    item.traits[0] && item.traits[0].trait_type === 'Price' &&
                                     <>
                                         <img src={ethLogo} alt="eth logo" />
                                         <p>{item.traits[0].value}</p>
