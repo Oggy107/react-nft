@@ -8,7 +8,7 @@ const Details = () => {
 
     return (
         <div className='details-container'>
-            <img className='details-img' src={selectedPunk.image_url} alt="asset image" />
+            <img className='details-img' src={selectedPunk.image_url} alt="asset" />
             <div className="details-info-container">
                 <div className="details-info-common-container">
                     <h1 className='details-name'>{selectedPunk.name}</h1>
@@ -21,7 +21,7 @@ const Details = () => {
                 </div>
                 <div className="details-owner-container">
                     <div className="owner-profile-img-container">
-                        <img className='owner-profile-img' src={selectedPunk.owner.profile_img_url} alt="owner profile pic" />
+                        <img className='owner-profile-img' src={selectedPunk.owner.profile_img_url} alt="owner" />
                     </div>
                     <p className="owner-address">{selectedPunk.owner.address}</p>
                 </div>
@@ -33,20 +33,24 @@ const Details = () => {
                     {
                         selectedPunk.traits[0] ?
                         <table>
-                            <tr>
-                                <th>trait type</th>
-                                <th>value</th>
-                            </tr>
-                            {
-                                selectedPunk.traits.map((trait) => {
-                                    return (
-                                        <tr>
-                                                <td>{trait.trait_type}</td>
-                                                <td>{trait.value}</td>
-                                            </tr>
-                                            )
-                                        })
-                                    }
+                            <thead>
+                                <tr>
+                                    <th>trait type</th>
+                                    <th>value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    selectedPunk.traits.map((trait, index) => {
+                                        return (
+                                                <tr key={index}>
+                                                    <td>{trait.trait_type}</td>
+                                                    <td>{trait.value}</td>
+                                                </tr>
+                                                )
+                                            })
+                                }
+                            </tbody>
                         </table> :
                         <h4>None</h4>
                     }

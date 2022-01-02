@@ -16,7 +16,7 @@ const App = () => {
 
     React.useEffect(() => {
         dispatch(fetchAssets(asset_contract_address))
-    }, [])
+    }, [asset_contract_address, dispatch])
 
     if (loading)
     {
